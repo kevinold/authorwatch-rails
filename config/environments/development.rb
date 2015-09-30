@@ -2,9 +2,13 @@ AuthorwatchRails::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In development send *wp-bundle.js to the webpack-dev-server running on 8080
-  config.action_controller.asset_host = Proc.new { |source|
+  config.action_controller.asset_host = Proc.new { |source, request|
     if source =~ /wp_bundle\.js$/i
-    "http://localhost:8080"
+      if request.host != 'localhost' || request.host != '0.0.0.0'
+        "http://#{request.host}:8080"
+      else
+        "http://0.0.0.0:8080"
+      end
     end
   }
 
