@@ -4,7 +4,7 @@
   "description": "authorwatch demo",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.hot.config.js --hot --progress --colors --inline",
+    "start": "webpack-dev-server --config config/webpack.config.js --progress --colors --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
